@@ -38,7 +38,7 @@
     "snapscreenInsertAlign": "none", /* 插入的图片浮动方式 */
 
     /* 抓取远程图片配置 */
-    "catcherLocalDomain": ["127.0.0.1", "localhost", "img.baidu.com"],
+    "catcherLocalDomain": ["127.0.0.1", "localhost", "image.baidu.com"],
     "catcherActionName": "catchimage", /* 执行抓取远程图片的action名称 */
     "catcherFieldName": "source", /* 提交的图片列表表单名称 */
     "catcherPathFormat": "/jflyfox/ueditor/image/{yyyy}{mm}{dd}/{time}{rand:6}", /* 上传保存路径,可以自定义保存路径和文件名格式 */
@@ -51,7 +51,7 @@
     "videoFieldName": "upfile", /* 提交的视频表单名称 */
     "videoPathFormat": "/jflyfox/ueditor/video/{yyyy}{mm}{dd}/{time}{rand:6}", /* 上传保存路径,可以自定义保存路径和文件名格式 */
     "videoUrlPrefix": "", /* 视频访问路径前缀 */
-    "videoMaxSize": 102400000, /* 上传大小限制，单位B，默认100MB */
+    "videoMaxSize": 204800000, /* 上传大小限制，单位B，默认100MB */
     "videoAllowFiles": [
         ".flv", ".swf", ".mkv", ".avi", ".rm", ".rmvb", ".mpeg", ".mpg",
         ".ogg", ".ogv", ".mov", ".wmv", ".mp4", ".webm", ".mp3", ".wav", ".mid"], /* 上传视频格式显示 */

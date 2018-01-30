@@ -301,7 +301,7 @@ public class FrontCacheService extends BaseService {
 	public String getPublicWhere() {
 		return " t.status =  " + JFlyFoxUtils.STATUS_SHOW //
 				+ " and t.approve_status = " + ArticleConstant.APPROVE_STATUS_PASS // 审核通过
-				+ " and t.type in (11,12) " // 查询状态为显示，类型是预览和正常的文章
+				/*+ " and t.type in (11,12) " // 查询状态为显示，类型是预览和正常的文章，删除这个条件，让文章有更多的type*/
 		;
 	}
 }

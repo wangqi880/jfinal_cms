@@ -93,7 +93,8 @@ var bodyContent = {
 				<tr>
 					<th>序号</th>
 					<%  // 列表头部 %>
-					<th name="parent_id" class="sorting">父相册</th> 
+					<th name="parent_id" class="sorting">父相册</th>
+					<th name="id" class="sorting">相册id</th>
 					<th name="name" class="sorting">相册名称</th> 
 					<th name="sort" class="sorting">排序</th> 
 					<th name="status" class="sorting">状态</th> 
@@ -108,8 +109,9 @@ var bodyContent = {
 				<td>${itemLP.index }</td>
 					<%  // 列表内容 %>
 					<td>${item.parentName!'根相册' }</td>
-					<td>${item.name}(${item.id})</td> 
-					<td>${item.sort}</td> 
+					<td>${item.id}</td>
+					<td>${item.name}(${item.id})</td>
+					<td>${item.sort}</td>
 					<td>
 					<% if(item.status==2) { %>
 					隐藏

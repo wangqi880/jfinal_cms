@@ -33,7 +33,7 @@ public class TbFolder extends BaseProjectModel<TbFolder> {
 	private String UPDATE_TIME = "update_time"; // 更新时间
 	private String CREATE_TIME = "create_time"; // 创建时间
 	private String CREATE_ID = "create_id"; // 创建者
-
+	private  String MATERIAL_TYPE_CODE="material_type_code";//栏目类型的code
 	public TbFolder setId(java.lang.Integer value) {
 		set(ID, value);
 		return this;
@@ -42,6 +42,7 @@ public class TbFolder extends BaseProjectModel<TbFolder> {
 	public java.lang.Integer getId() {
 		return get(ID);
 	}
+
 	
 	public TbFolder setParentId(java.lang.Integer value) {
 		set(PARENT_ID, value);
@@ -130,6 +131,15 @@ public class TbFolder extends BaseProjectModel<TbFolder> {
 	}
 
 	public java.lang.Integer getMaterialType() {
+		return get(MATERIAL_TYPE);
+	}
+
+	public TbFolder setMaterialTypeCode(java.lang.String value) {
+		set(MATERIAL_TYPE_CODE, value);
+		return this;
+	}
+
+	public java.lang.Integer getMaterialTypeCode() {
 		return get(MATERIAL_TYPE);
 	}
 	
