@@ -30,12 +30,14 @@ public class ResourceController extends BaseProjectController {
     ApiV100Logic apiV100Logic = new ApiV100Logic();
 
     public void list() {
+        getResponse().addHeader("Access-Control-Allow-Origin", "*");
         List<String> list =  ApiService.methodList();
         renderJson(list);
     }
 
     //查询所有栏目
     public void columnInfoAll(){
+        getResponse().addHeader("Access-Control-Allow-Origin", "*");
         int siteId;
         String qsng_site_template_name_key="qsng_site_template_name";
        String qsng_site_template_name_value=  ConfigCache.getValue(qsng_site_template_name_key);
@@ -54,6 +56,8 @@ public class ResourceController extends BaseProjectController {
 
     //查询该栏目下的文章
     public void columnInfoDetail(){
+        getResponse().addHeader("Access-Control-Allow-Origin", "*");
+
         ApiForm form = new ApiForm();
         int folderId = getParaToInt("folderId");
         TbArticle model = getModelByAttr(TbArticle.class);
@@ -90,6 +94,8 @@ public class ResourceController extends BaseProjectController {
 
     //查询该栏目信息
     public void columnInfo(){
+        getResponse().addHeader("Access-Control-Allow-Origin", "*");
+
         String id=getPara("folderId");
         ApiForm from = new ApiForm();
         ApiResp resp = new ApiResp(from);
@@ -122,6 +128,8 @@ public class ResourceController extends BaseProjectController {
     }
     //通过id获取编号
     public void getMaterialTypeCode(){
+        getResponse().addHeader("Access-Control-Allow-Origin", "*");
+
         int id=0;
         try {
              id =getParaToInt("id");
@@ -151,6 +159,8 @@ public class ResourceController extends BaseProjectController {
 
     //获取数据字典
     public SysDictDetail getDictDetail(int id){
+        getResponse().addHeader("Access-Control-Allow-Origin", "*");
+
         StringBuffer sql = new StringBuffer("select t.*,d.dict_name from sys_dict_detail t,sys_dict d where t.dict_type = d.dict_type ");
             sql.append(" AND  t.detail_id = '").append(id).append("'");
         List<SysDictDetail> list= SysDictDetail.dao.find(sql.toString().toString());
@@ -163,6 +173,8 @@ public class ResourceController extends BaseProjectController {
 
     //获取首页主题
     public void index_theme_config(){
+        getResponse().addHeader("Access-Control-Allow-Origin", "*");
+
         //首页图片相册系统配置参数
         String index_image_album =IndexThemeUtil.index_image_album;
         String index_image_album_value = ConfigCache.getValue("index_image_album");
@@ -242,7 +254,9 @@ public class ResourceController extends BaseProjectController {
 
     //根据文章id查询文章
     public void getArticle(){
-       String id= getPara("id");
+        getResponse().addHeader("Access-Control-Allow-Origin", "*");
+
+        String id= getPara("id");
         ApiForm from = new ApiForm();
         ApiResp resp = new ApiResp(from);
         if(StringUtils.isEmpty(id)){
