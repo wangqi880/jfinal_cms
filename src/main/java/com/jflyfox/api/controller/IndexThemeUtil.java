@@ -13,4 +13,20 @@ public class IndexThemeUtil {
     public static String bg_image="bg_image";
     //首页背景颜色
     public static String bg_color="bg_color";
+
+    //logo图片
+    public static String logo_image_url="logo_image_url";
+    //首页左上角图片
+    public static String index_left_top_image_url="index_left_top_image_url";
+    //首页右上角图片
+    public static String index_right_top_image_url="index_right_top_image_url";
+    //二维码图片
+    public static String code_2_image_url="code_2_image_url";
+    //版权与支持
+    public static String copyright_support_image_url="copyright_support_image_url";
+    //文字选择背景颜色
+    public static String word_bg_color="word_bg_color";
+    //首页左下角
+    public static String index_left_bottom_url="index_left_bottom_url";
+
 }

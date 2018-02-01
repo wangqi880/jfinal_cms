@@ -174,7 +174,7 @@ public class ResourceController extends BaseProjectController {
     //获取首页主题
     public void index_theme_config(){
         getResponse().addHeader("Access-Control-Allow-Origin", "*");
-
+        IndexTheme it  = new IndexTheme();
         //首页图片相册系统配置参数
         String index_image_album =IndexThemeUtil.index_image_album;
         String index_image_album_value = ConfigCache.getValue("index_image_album");
@@ -194,7 +194,39 @@ public class ResourceController extends BaseProjectController {
         String bg_color =IndexThemeUtil.bg_color;
         String bg_color_value = ConfigCache.getValue("bg_color");
 
-        IndexTheme it  = new IndexTheme();
+        //新增其他配置
+
+        //logo图片
+          String logo_image_url=IndexThemeUtil.logo_image_url;
+        String logo_image_url_value=ConfigCache.getValue(logo_image_url);
+        it.setLogo_image_url(logo_image_url_value);
+        //首页左上角图片
+        String index_left_top_image_url=IndexThemeUtil.index_left_top_image_url;
+        String index_left_top_image_url_value=ConfigCache.getValue(index_left_top_image_url);
+        it.setIndex_left_top_image_url(index_left_top_image_url_value);
+        //首页右上角图片
+         String index_right_top_image_url=IndexThemeUtil.index_right_top_image_url;
+        String index_right_top_image_url_value=ConfigCache.getValue(index_right_top_image_url);
+        it.setIndex_right_top_image_url(index_right_top_image_url_value);
+        //二维码图片
+       String code_2_image_url=IndexThemeUtil.code_2_image_url;
+        String code_2_image_url_value=ConfigCache.getValue(code_2_image_url);
+        it.setCode_2_image_url(code_2_image_url_value);
+        //版权与支持
+        String copyright_support_image_url=IndexThemeUtil.copyright_support_image_url;
+        String copyright_support_image_url_value=ConfigCache.getValue(copyright_support_image_url);
+        it.setCopyright_support_image_url(copyright_support_image_url_value);
+
+        //文字选择背景图片
+        String word_bg_color=IndexThemeUtil.word_bg_color;
+        String word_bg_color_value=ConfigCache.getValue(word_bg_color);
+        it.setWord_bg_color(word_bg_color_value);
+
+        //左下角
+        String index_left_bottom_url=IndexThemeUtil.index_left_bottom_url;
+        String index_left_bottom_urlvalue=ConfigCache.getValue(index_left_bottom_url);
+        it.setIndex_left_bottom_url(index_left_bottom_urlvalue);
+
         it.setBg_color(bg_color_value);
         //如果没有，使用默认的,默认的如果没设置本域名的，就是用网路路径
         if(StringUtils.isNotEmpty(bg_image_value)){
