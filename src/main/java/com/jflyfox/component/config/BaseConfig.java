@@ -16,6 +16,7 @@
  */
 package com.jflyfox.component.config;
 
+import com.jfinal.core.Const;
 import org.beetl.core.GroupTemplate;
 import org.beetl.ext.jfinal3.JFinal3BeetlRenderFactory;
 
@@ -84,7 +85,8 @@ public class BaseConfig extends JFinalConfig {
 		me.setError403View(Config.getStr("PAGES.403"));
 		me.setError404View(Config.getStr("PAGES.404"));
 		me.setError500View(Config.getStr("PAGES.500"));
-		
+		me.setMaxPostSize(100*Const.DEFAULT_MAX_POST_SIZE);
+		System.out.println("wori:"+me.getMaxPostSize());
 		// 开启日志
 		SqlReporter.setLog(true);
 
