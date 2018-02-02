@@ -69,9 +69,9 @@ public class ResourceController extends BaseProjectController {
             sql.whereEquals("folder_id", folderId);
             sql.whereEquals("status", 1);
 
-        // 站点设置
+        /*// 站点设置
         int siteId = getSessionUser().getBackSiteId();
-        sql.append(" and site_id = " + siteId);
+        sql.append(" and site_id = " + siteId);*/
 
         // 排序
         String orderBy = getBaseForm().getOrderBy();

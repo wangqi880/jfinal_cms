@@ -9,7 +9,7 @@ import com.jflyfox.util.StrUtils;
 
 public class FileUploadUtils {
 
-	public static final int UPLOAD_MAX = 10 * 1024 * 1024;
+	public static final int UPLOAD_MAX = 500 * 1024 * 1024;
 
 	/**
 	 * 基础目录
