@@ -27,6 +27,8 @@ import java.util.Map;
 public class ResourceController extends BaseProjectController {
     ApiService service = new ApiService();
 
+    private static final String site_url="http://gingko.cdqsng.com:18080/jfinal_cms/";
+
     ApiV100Logic apiV100Logic = new ApiV100Logic();
 
     public void list() {
@@ -85,6 +87,9 @@ public class ResourceController extends BaseProjectController {
                 sql.toString().toString());
         ApiResp resp= new ApiResp(form);
         Map map  = new HashMap();
+        for(TbArticle tb:page.getList()){
+            tb.setImageUrl(site_url+tb.getImageUrl());
+        }
         map.put("page",page);
         TbFolder tbFolder = TbFolder.dao.findById(folderId);
         map.put("tbFolder",tbFolder);
@@ -306,6 +311,7 @@ public class ResourceController extends BaseProjectController {
         Map map = new HashMap();
         if(CollectionUtils.isNotEmpty(list)){
             TbArticle ta= list.get(0);
+            ta.setImageUrl(site_url+ta.getImageUrl());
             map.put("article",ta);
             resp.setData(map);
         }else{
