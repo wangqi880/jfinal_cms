@@ -23,6 +23,9 @@ public class IndexTheme {
     //首页左下角
     String index_left_bottom_url="index_left_bottom_url";
 
+    //手机端首页url
+    String phone_bg_image_url;
+
 
     public String getBg_color() {
         return bg_color;
@@ -121,6 +124,14 @@ public class IndexTheme {
 
     public void setIndex_left_bottom_url(String index_left_bottom_url) {
         this.index_left_bottom_url = index_left_bottom_url;
+    }
+
+    public String getPhone_bg_image_url() {
+        return phone_bg_image_url;
+    }
+
+    public void setPhone_bg_image_url(String phone_bg_image_url) {
+        this.phone_bg_image_url = phone_bg_image_url;
     }
 }
 

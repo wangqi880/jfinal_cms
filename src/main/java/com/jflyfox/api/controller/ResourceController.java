@@ -232,6 +232,11 @@ public class ResourceController extends BaseProjectController {
         String index_left_bottom_urlvalue=ConfigCache.getValue(index_left_bottom_url);
         it.setIndex_left_bottom_url(index_left_bottom_urlvalue);
 
+        //手机端首页背景图
+        String phone_bg_image_url = IndexThemeUtil.phone_bg_image_url;
+        String phone_bg_image_url_value=ConfigCache.getValue(phone_bg_image_url);
+        it.setPhone_bg_image_url(phone_bg_image_url_value);
+
         it.setBg_color(bg_color_value);
         //如果没有，使用默认的,默认的如果没设置本域名的，就是用网路路径
         if(StringUtils.isNotEmpty(bg_image_value)){

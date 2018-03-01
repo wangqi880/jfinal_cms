@@ -29,4 +29,7 @@ public class IndexThemeUtil {
     //首页左下角
     public static String index_left_bottom_url="index_left_bottom_url";
 
+    //手机端首页背景图
+    public static String phone_bg_image_url="phone_bg_image";
+
 }
