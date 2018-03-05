@@ -32,4 +32,7 @@ public class IndexThemeUtil {
     //手机端首页背景图
     public static String phone_bg_image_url="phone_bg_image";
 
+    //网页的title
+    public static String web_title="web_title";
+
 }

@@ -26,6 +26,9 @@ public class IndexTheme {
     //手机端首页url
     String phone_bg_image_url;
 
+    //网站的title
+    String web_title;
+
 
     public String getBg_color() {
         return bg_color;
@@ -132,6 +135,14 @@ public class IndexTheme {
 
     public void setPhone_bg_image_url(String phone_bg_image_url) {
         this.phone_bg_image_url = phone_bg_image_url;
+    }
+
+    public String getWeb_title() {
+        return web_title;
+    }
+
+    public void setWeb_title(String web_title) {
+        this.web_title = web_title;
     }
 }
 

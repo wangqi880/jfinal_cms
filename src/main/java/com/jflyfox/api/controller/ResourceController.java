@@ -238,6 +238,11 @@ public class ResourceController extends BaseProjectController {
         it.setPhone_bg_image_url(phone_bg_image_url_value);
 
         it.setBg_color(bg_color_value);
+
+        //网站title
+        String web_title = IndexThemeUtil.web_title;
+        String web_title_value=ConfigCache.getValue(web_title);
+        it.setWeb_title(web_title_value);
         //如果没有，使用默认的,默认的如果没设置本域名的，就是用网路路径
         if(StringUtils.isNotEmpty(bg_image_value)){
             bg_image_value=  bg_image_value.trim();
