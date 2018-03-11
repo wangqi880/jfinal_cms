@@ -13,6 +13,7 @@ import com.jflyfox.component.util.JFlyFoxUtils;
 import com.jflyfox.jfinal.component.util.Attr;
 import com.jflyfox.system.menu.SysMenu;
 import com.jflyfox.util.StrUtils;
+import org.apache.commons.lang.StringUtils;
 
 /**
  * 用户认证拦截器
@@ -39,41 +40,45 @@ public class UserInterceptor implements Interceptor {
 		String tmpPath = ai.getActionKey();
 		tmpPath = JFlyFoxUtils.handlerPath(tmpPath);
 
-		// 每次访问获取session，没有可以从cookie取~
-		SysUser user = null;
-		if (controller instanceof BaseProjectController) {
-			user = (SysUser) ((BaseProjectController) controller).getSessionUser();
-		} else {
-			user = controller.getSessionAttr(Attr.SESSION_NAME);
+		//如果是播放视频，那么就不用认证
+		if(!"admin/video/show".equals(tmpPath)){
+			// 每次访问获取session，没有可以从cookie取~
+			SysUser user = null;
+			if (controller instanceof BaseProjectController) {
+				user = (SysUser) ((BaseProjectController) controller).getSessionUser();
+			} else {
+				user = controller.getSessionAttr(Attr.SESSION_NAME);
+			}
+
+			// if ((user == null || user.getUserid() <= 0) //
+			// && JFinal.me().getConstants().getDevMode()) { // 开发模式
+			// user =
+			// SysUser.dao.findFirst("select * from sys_user where userid = 1");
+			// controller.setSessionAttr(Attr.SESSION_NAME, user);
+			// }
+
+			if (JFlyFoxUtils.isBack(tmpPath)) {
+				if (user == null || user.getUserid() <= 0) {
+					controller.redirect("/trans");
+					return;
+				}
+				// TODO 这里展示控制第三方用户和前端用户不能登录后台
+				int usertype = user.getInt("usertype");
+				if (usertype == 4 // 第三方用户
+						|| usertype == 3) { // 前端用户
+					controller.redirect("/trans/auth");
+					return;
+				}
+
+				// 判断url是否有权限
+				if (!urlAuth(controller, tmpPath)) {
+					controller.redirect("/trans/auth");
+					return;
+				}
+
+			}
 		}
 
-		// if ((user == null || user.getUserid() <= 0) //
-		// && JFinal.me().getConstants().getDevMode()) { // 开发模式
-		// user =
-		// SysUser.dao.findFirst("select * from sys_user where userid = 1");
-		// controller.setSessionAttr(Attr.SESSION_NAME, user);
-		// }
-
-		if (JFlyFoxUtils.isBack(tmpPath)) {
-			if (user == null || user.getUserid() <= 0) {
-				controller.redirect("/trans");
-				return;
-			}
-			// TODO 这里展示控制第三方用户和前端用户不能登录后台
-			int usertype = user.getInt("usertype");
-			if (usertype == 4 // 第三方用户
-					|| usertype == 3) { // 前端用户
-				controller.redirect("/trans/auth");
-				return;
-			}
-
-			// 判断url是否有权限
-			if (!urlAuth(controller, tmpPath)) {
-				controller.redirect("/trans/auth");
-				return;
-			}
-
-		}
 
 		ai.invoke();
 	}
